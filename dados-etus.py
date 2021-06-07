@@ -22,6 +22,7 @@ class ChromeAuto:
     def sair(self):
         self.chrome.quit()
 
+    #Faz o login
     def faz_login(self):
         try:
             input_login = self.chrome.find_element_by_css_selector('#login')
@@ -37,9 +38,11 @@ class ChromeAuto:
         except Exception as e:
             print('Erro ao fazer login', e)
 
+    #Acessa pagina de Relatorios Emitidos
     def relatorios(self):
         self.chrome.get('https://front.etus.com.br/reports')
 
+    #Copiar link do relatorio que vai extrair os dados
     def codigo_relatorio(self):
         self.chrome.get('https://report.etus.com.br/report/share/amFhWEpyOHVYSU0vZGlzeUJXOEIwVmk2WU5CclY1a2NTNm5wcXZ0cXZZbUprUDUySHFzSEs5eW1Yc0F0V0NDZQ==')
 
@@ -104,106 +107,104 @@ class ChromeAuto:
         rel_insta.click()
 
     def dados_instagram(self):
-        try:
-            dados_insta = []
+        dados_insta = []
 
-            #Resumo Geral
-            alc = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
-            impres = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
-            vis_perfil = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
-            tot_click = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(3) > div > div > div > b')
+        #Resumo Geral
+        alc = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
+        impres = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
+        vis_perfil = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
+        tot_click = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(2) > div > div.box-top-body.position-relative > div:nth-child(3) > div > div > div > b')
 
-            #Variacao de seguidores no periodo
-            variacao_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
-            crescimento_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
-            num_inicial_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
-            num_final_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
+        #Variacao de seguidores no periodo
+        variacao_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
+        crescimento_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
+        num_inicial_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
+        num_final_seguidores = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(5) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
 
-            #Cidades com maior alcance
-            cidades = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(8) > div > div.box-top-body.position-relative > div > div:nth-child(1) > table')
+        #Cidades com maior alcance
+        cidades = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(8) > div > div.box-top-body.position-relative > div > div:nth-child(1) > table')
 
-            #Visão geral dos cliques
-            tipo_click = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(8) > div > div.box-top-body.position-relative > div > div:nth-child(2) > table')
+        #Visão geral dos cliques
+        tipo_click = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(8) > div > div.box-top-body.position-relative > div > div:nth-child(2) > table')
 
-            #Resultado das publicações
-            comentarios_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
-            likes_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
-            impressoes_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
-            posts_salvos = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(4) > div > div > b')
-            alc_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
-            eng_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
-            tot_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(3) > div > div > b')
+        #Resultado das publicações
+        comentarios_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
+        likes_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
+        impressoes_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
+        posts_salvos = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(4) > div > div > b')
+        alc_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
+        eng_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
+        tot_posts = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(9) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(3) > div > div > b')
 
-            #Melhor hora para postar
-            mlhr_hora_post = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(11) > div > div.box-top-body.position-relative > div > p')
+        #Melhor hora para postar
+        mlhr_hora_post = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(11) > div > div.box-top-body.position-relative > div > p')
 
-            # informacoes gerais dos stories
-            click_voltar = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
-            sair_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
-            click_frente = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
-            alc_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
-            impressoes_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
-            resposta_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(3) > div > div > b')
-            total_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(1) > div > div > b')
-            media_impressoes = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(2) > div > div > b')
-            media_alc = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(3) > div > div > b')
-            resposta_enquetes = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div.col-md-12 > div > div > b')
+        # informacoes gerais dos stories
+        click_voltar = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(1) > div > div > b')
+        sair_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(2) > div > div > b')
+        click_frente = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(2) > div:nth-child(3) > div > div > b')
+        alc_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(1) > div > div > b')
+        impressoes_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(2) > div > div > b')
+        resposta_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(3) > div:nth-child(3) > div > div > b')
+        total_stories = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(1) > div > div > b')
+        media_impressoes = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(2) > div > div > b')
+        media_alc = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div:nth-child(3) > div > div > b')
+        resposta_enquetes = self.chrome.find_element_by_css_selector('#app-instagram > div:nth-child(13) > div > div.box-top-body.position-relative > div:nth-child(4) > div.col-md-12 > div > div > b')
 
-            dados_instagram = {
-                'Resumo_geral': {
-                        'Alcance': alc.text,
-                        'Impressoes': impres.text,
-                        'Visualizacoes_perfil': vis_perfil.text,
-                        'Total_cliques_perfil': tot_click.text,
-                },
-                'Variacao_seguidores_periodo': {
-                        'Variacao_seguidores': variacao_seguidores.text,
-                        'Crescimento_seguidores': crescimento_seguidores.text,
-                        'Num_inicial_seguidores': num_inicial_seguidores.text,
-                        'Num_final_seguidores': num_final_seguidores.text,
-                },
-                'Cidade_com_maior_alcance': {
-                        'cidades': cidades.text.replace('\n', ' | ')
-                },
-                'Visão_geral_cliques': {
-                        'tipo_cliques': tipo_click.text.replace('\n', ' | ')
-                },
-                'Resultado_publicacoes': {
-                        'Comentarios_posts': comentarios_posts.text,
-                        'Likes_posts': likes_posts.text,
-                        'Impressoes_posts': impressoes_posts.text,
-                        'Posts_salvos': posts_salvos.text,
-                        'Alcance_posts': alc_posts.text,
-                        'Engajamento_posts': eng_posts.text,
-                        'total_posts': tot_posts.text,
-                },
-                'Melhores_hora/dia_postar': {
-                        'Melhor_hd_post': mlhr_hora_post.text
-                },
-                'Informacoes_gerais_stories': {
-                        'Cliques_voltar': click_voltar.text,
-                        'Sair_storie': sair_stories.text,
-                        'Cliques_frente': click_frente.text,
-                        'Alcance_storie': alc_stories.text,
-                        'Impressoes_storie': impressoes_stories.text,
-                        'Resposta_storie': resposta_stories.text,
-                        'Total_stories': total_stories.text,
-                        'Media_impressoes': media_impressoes.text,
-                        'Media_alcance': media_alc.text,
-                        'Resposta_enquete': resposta_enquetes.text,
-                }
+        dados_instagram = {
+            'Resumo_geral': {
+                    'Alcance': alc.text,
+                    'Impressoes': impres.text,
+                    'Visualizacoes_perfil': vis_perfil.text,
+                    'Total_cliques_perfil': tot_click.text,
+            },
+            'Variacao_seguidores_periodo': {
+                    'Variacao_seguidores': variacao_seguidores.text,
+                    'Crescimento_seguidores': crescimento_seguidores.text,
+                    'Num_inicial_seguidores': num_inicial_seguidores.text,
+                    'Num_final_seguidores': num_final_seguidores.text,
+            },
+            'Cidade_com_maior_alcance': {
+                    'cidades': cidades.text.replace('\n', ' | ')
+            },
+            'Visão_geral_cliques': {
+                    'tipo_cliques': tipo_click.text.replace('\n', ' | ')
+            },
+            'Resultado_publicacoes': {
+                    'Comentarios_posts': comentarios_posts.text,
+                    'Likes_posts': likes_posts.text,
+                    'Impressoes_posts': impressoes_posts.text,
+                    'Posts_salvos': posts_salvos.text,
+                    'Alcance_posts': alc_posts.text,
+                    'Engajamento_posts': eng_posts.text,
+                    'total_posts': tot_posts.text,
+            },
+            'Melhores_hora/dia_postar': {
+                    'Melhor_hd_post': mlhr_hora_post.text
+            },
+            'Informacoes_gerais_stories': {
+                    'Cliques_voltar': click_voltar.text,
+                    'Sair_storie': sair_stories.text,
+                    'Cliques_frente': click_frente.text,
+                    'Alcance_storie': alc_stories.text,
+                    'Impressoes_storie': impressoes_stories.text,
+                    'Resposta_storie': resposta_stories.text,
+                    'Total_stories': total_stories.text,
+                    'Media_impressoes': media_impressoes.text,
+                    'Media_alcance': media_alc.text,
+                    'Resposta_enquete': resposta_enquetes.text,
             }
+        }
 
-            dados_insta.append(dados_instagram)
+        dados_insta.append(dados_instagram)
 
-            for di in dados_insta:
-                print(di)
+        for di in dados_insta:
+            print(di)
 
-            with open('dados_etus_instagram.json', 'w', encoding='utf-8') as dfe:
-                json.dump(dados_insta, dfe, ensure_ascii=False, sort_keys=True, indent=5, separators=(',', ':'))
+        with open('dados_etus_instagram.json', 'w', encoding='utf-8') as dfe:
+            json.dump(dados_insta, dfe, ensure_ascii=False, sort_keys=True, indent=5, separators=(',', ':'))
 
-        except Exception as e:
-            print('Erro: ', e)
+
 
     def relatorios_twitter(self):
         rel_insta = self.chrome.find_element_by_css_selector('#report-vue > div > ul > li:nth-child(3) > a')
