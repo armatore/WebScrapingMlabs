@@ -49,9 +49,14 @@ class ChromeAuto:
     def dados_facebook(self):
         dados_face = []
 
+        #Total seguidores
+        tot_likes = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div > h3:nth-child(1) > p')
+        pes_engajadas = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div > h3:nth-child(2) > p')
+
         # LIKES DA PÁGINA
         like = self.chrome.find_element_by_css_selector('#highcharts-0 > svg > g.highcharts-legend > g > g > g:nth-child(1) > text > tspan')
         deslike = self.chrome.find_element_by_css_selector('#highcharts-0 > svg > g.highcharts-legend > g > g > g:nth-child(2) > text > tspan')
+        sleep(1)
 
         # PERFIL DOS FÃS
         total_fas_masc = self.chrome.find_element_by_css_selector('#highcharts-4 > svg > g.highcharts-legend > g > g > g:nth-child(1) > text > tspan')
@@ -76,10 +81,10 @@ class ChromeAuto:
         user_env = self.chrome.find_element_by_css_selector('#highcharts-8 > svg > g.highcharts-legend > g > g > g:nth-child(5) > text > tspan:nth-child(2)')
 
         # Interações
-        i_curtir = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(1) > span > strong')
-        i_amei = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span > strong')
-        i_comentarios = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(3) > span > strong')
-        i_click = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(4) > span > strong')
+        i_curtir = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(1) > span')
+        #i_amei = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span > strong')
+        #i_comentarios = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(3) > span > strong')
+        i_click = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span')
 
         # Total de posts
         tot_posts = self.chrome.find_element_by_css_selector('#acpt-box-contents > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(1) > div > div > span')
@@ -93,55 +98,59 @@ class ChromeAuto:
         melhor_perio_post = self.chrome.find_element_by_css_selector('#acpt-box-contents > div:nth-child(3) > div > div > div.acpt-box-row > div')
 
         dados_facebk = {
-                'Likes_pagina': {
-                        'Total_likes': like.text,
-                        'Total_deslikes': deslike.text,
+                'total_likes': {
+                        'total_likes': tot_likes.text,
+                        'pessoas_engajadas': pes_engajadas.text,
                 },
-                'Perfil_fas': {
-                        'Total_fas_masc': total_fas_masc.text,
-                        'Total_fas_fem': total_fas_fem,
-                        'Pessoas_engajadas_masc': p_eng_masc.text,
-                        'Pessoas_engajadas_fem': p_eng_fem.text,
-                        'Total_fas_sem_genero': total_fas_sem_gen.text,
-                        'Total_fas_eng_sem_genero': total_fas_eng_sem_gen.text,
+                'likes_pagina': {
+                        'total_likes': like.text,
+                        'total_deslikes': deslike.text,
                 },
-                'Fas_por_cidade': {
+                'perfil_fas': {
+                        'total_fas_masc': total_fas_masc.text,
+                        'total_fas_fem': total_fas_fem.text,
+                        'pessoas_engajadas_masc': p_eng_masc.text,
+                        'pessoas_engajadas_fem': p_eng_fem.text,
+                        'total_fas_sem_genero': total_fas_sem_gen.text,
+                        'total_fas_eng_sem_genero': total_fas_eng_sem_gen.text,
+                },
+                'fas_por_cidade': {
                         'total_fas_cidade': tot_fas_cidade.text,
-                        'Pessoas_eng_cidade': pes_eng_cidade.text,
+                        'pessoas_eng_cidade': pes_eng_cidade.text,
                 },
-                'Fas_por_fonte': {
-                        'Outras_fontes': outras_fontes.text
+                'fas_por_fonte': {
+                        'outras_fontes': outras_fontes.text
                 },
-                'Efetividade_pagina': {
-                        'Alcance_total': alc_total.text,
-                        'Alcance_pago': alc_pago.text,
-                        'Likes_pagina': like_pag.text,
-                        'Alcance_organico': alc_org.text,
-                        'Usuários_envolvidos': user_env.text,
+                'efetividade_pagina': {
+                        'alcance_total': alc_total.text,
+                        'alcance_pago': alc_pago.text,
+                        'likes_pagina': like_pag.text,
+                        'alcance_organico': alc_org.text,
+                        'usuários_envolvidos': user_env.text,
                 },
-                'Interacoes': {
-                        'Curtir': i_curtir.text,
-                        'Amei': i_amei.text,
-                        'Comentarios': i_comentarios.text,
-                        'Click': i_click.text,
+                'interacoes': {
+                        'curtir': i_curtir.text,
+                        #'amei': i_amei.text,
+                        #'comentarios': i_comentarios.text,
+                        'click': i_click.text,
                 },
-                'Total_posts': {
-                        'Total_post': tot_posts.text,
-                        'Total_interacoes': tot_interacoes.text,
-                        'Media_interacoes_por_post': media_interacoes_post.text,
+                'total_posts': {
+                        'total_post': tot_posts.text,
+                        'total_interacoes': tot_interacoes.text,
+                        'media_interacoes_por_post': media_interacoes_post.text,
                 },
-                'Melhor_tipo_conteudo': {
-                        'Melhor_conteudo': melhor_cont.text
+                'melhor_tipo_conteudo': {
+                        'melhor_conteudo': melhor_cont.text
                 },
-                'Melhor_periodo_postar': {
-                        'Melhor_dia/hora_postar': melhor_perio_post.text
+                'melhor_periodo_postar': {
+                        'melhor_dia/hora_postar': melhor_perio_post.text
                 },
         }
 
         dados_face.append(dados_facebk)
 
         with open('dados_mlabs_facebook.json', 'w', encoding='utf-8') as dfe:
-            json.dump(dados_face, dfe, ensure_ascii=False, sort_keys=True, indent=5, separators=(',', ':'))
+            json.dump(dados_face, dfe, ensure_ascii=False, indent=5, separators=(',', ':'))
 
         for df in dados_face:
             print(df)
@@ -153,7 +162,7 @@ class ChromeAuto:
         dados_tt = []
 
         # Total de seguidores
-        tot_seguidores = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div > h3')
+        tot_seguidores = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div > h3 > p')
 
         # Total de seguidores ganhos e perdidos
         seg_ganhos = self.chrome.find_element_by_css_selector('#acpt-box-followers > div:nth-child(1) > div > div > div > div.widgets.acpt-box-row > div:nth-child(1) > div:nth-child(1)')
@@ -163,6 +172,8 @@ class ChromeAuto:
         efe_post = self.chrome.find_element_by_css_selector('#acpt-box-effectiveness > div > div > div > div > div.effectiveness_header > div:nth-child(1)')
         eng_tot = self.chrome.find_element_by_css_selector('#acpt-box-effectiveness > div > div > div > div > div.effectiveness_header > div:nth-child(2)')
         pes_unicas = self.chrome.find_element_by_css_selector('#acpt-box-effectiveness > div > div > div > div > div.effectiveness_header > div:nth-child(3)')
+        seguidores_pagina = self.chrome.find_element_by_css_selector('#highcharts-4 > svg > g.highcharts-legend > g > g > g:nth-child(1) > text > tspan:nth-child(2)')
+        alca_potencial = self.chrome.find_element_by_css_selector('#highcharts-4 > svg > g.highcharts-legend > g > g > g:nth-child(2) > text > tspan:nth-child(2)')
 
         # Influencia
         influencia = self.chrome.find_element_by_css_selector('#acpt-box-influences > div > div > div > div.influences_header')
@@ -184,44 +195,46 @@ class ChromeAuto:
         mlhr_peri_post = self.chrome.find_element_by_css_selector('#acpt-box-contents > div:nth-child(3) > div > div > div.acpt-box-row > div')
 
         dados_twitter = {
-            'Total_seguidores': {
-                    'Total_seguidores': tot_seguidores.text,
+            'total_seguidores': {
+                    'total_seguidores': tot_seguidores.text,
             },
-            'Total_seguidores_ganhos_perdidos': {
-                    'Seguidores_ganhos': seg_ganhos.text,
-                    'Seguidores_perdidos': seg_perdidos.text,
+            'total_seguidores_ganhos_perdidos': {
+                    'seguidores_ganhos': seg_ganhos.text,
+                    'seguidores_perdidos': seg_perdidos.text,
             },
-            'Efetividade': {
-                    'Efetividade_posts': efe_post.text,
-                    'Total_engajamento': eng_tot.text,
-                    'Pessoas_unicas': pes_unicas.text,
+            'efetividade': {
+                    'efetividade_posts': efe_post.text,
+                    'total_engajamento': eng_tot.text,
+                    'pessoas_unicas': pes_unicas.text,
+                    'seguidores_pagina': seguidores_pagina.text,
+                    'alcance_potencial': alca_potencial.text,
             },
-            'Influencia': {
-                    'Influencia': influencia.text,
-                    'Influenciadores': inf.text
+            'influencia': {
+                    'influencia': influencia.text,
+                    'influenciadores': inf.text,
             },
-            'Palavra_chave': {
-                    'Palavras_chaves': pala_chaves.text
+            'palavra_chave': {
+                    'palavras_chaves': pala_chaves.text,
             },
-            'Total_conteudos': {
-                    'total_conteudos': tot_conteudos.text
+            'total_conteudos': {
+                    'total_conteudos': tot_conteudos.text,
             },
-            'Melhor_posts': {
-                    'Melhor_post_eng': mlhr_post_eng.text
+            'melhor_posts': {
+                    'melhor_post_eng': mlhr_post_eng.text,
             },
-            'Melhor_tipo_conteudo': {
-                    'Melhor_tipo_conteudos': mlhr_tipo_cont.text
+            'melhor_tipo_conteudo': {
+                    'melhor_tipo_conteudos': mlhr_tipo_cont.text,
             },
-            'Melhor_periodo_post': {
-                    'Melhor_dia/hora_postar': mlhr_peri_post
+            'melhor_periodo_post': {
+                    'melhor_dia/hora_postar': mlhr_peri_post.text,
             }
 
         }
 
         dados_tt.append(dados_twitter)
 
-        with open('dados_mlabs_facebook.json', 'w', encoding='utf-8') as dtm:
-            json.dump(dados_tt, dtm, ensure_ascii=False, sort_keys=True, indent=5, separators=(',', ':'))
+        with open('dados_mlabs_twitter.json', 'w', encoding='utf-8') as dtm:
+            json.dump(dados_tt, dtm, ensure_ascii=False, indent=5, separators=(',', ':'))
 
         for dt in dados_tt:
             print(dt)
@@ -233,13 +246,15 @@ class ChromeAuto:
         dados_insta = []
 
         # Seguidores
-        seguidores_insta = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div')
+        seguidores_insta = self.chrome.find_element_by_css_selector('#acpt-header-content > div.acpt-header-text > div > h3 > p')
 
         # Melhor story
         mlhr_story_view = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(1) > div > div > div > div:nth-child(4) > div')
 
         # total storys
-        tot_story = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(1) > div > div > div > div:nth-child(6)')
+        tot_story = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(1) > div > div > span')
+        tot_interacoes = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(2)')
+        media_int_por_story = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(3) > div > div > span')
 
         # Melhor tipo de storys
         mlhr_tipo_story = self.chrome.find_element_by_css_selector('#acpt-box-stories > div:nth-child(2) > div > div > div.acpt-box-row > div')
@@ -251,29 +266,35 @@ class ChromeAuto:
         gen_seg = self.chrome.find_element_by_css_selector('#highcharts-10 > svg > g.highcharts-legend')
 
         # Total de posts
-        tot_post = self.chrome.find_element_by_css_selector('#acpt-box-posts > div:nth-child(1) > div > div > div > div:nth-child(6)')
+        tot_post = self.chrome.find_element_by_css_selector('#acpt-box-posts > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(1) > div > div > span')
+        tot_interacoes = self.chrome.find_element_by_css_selector('#acpt-box-posts > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(2)')
+        media_int_por_post = self.chrome.find_element_by_css_selector('#acpt-box-posts > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(2)')
 
         dados_instagram = {
-            'Seguidores': {
+            'seguidores': {
                 'total_seguidores': seguidores_insta.text,
             },
-            'Melhor_storie': {
-                'Melhor_story_por_view': mlhr_story_view.text
+            'melhor_storie': {
+                'melhor_storie_por_view': mlhr_story_view.text,
             },
-            'Total_stories': {
-                'Total_stories': tot_story.text
+            'total_stories': {
+                'total_stories': tot_story.text,
+                'total_interacoes_storie': tot_interacoes.text,
+                'media_interacoes_por_storie': media_int_por_story.text,
             },
-            'Melhor_tipo_storie': {
-                'Melhor_tipo_story': mlhr_tipo_story.text
+            'melhor_tipo_storie': {
+                'melhor_tipo_story': mlhr_tipo_story.text,
             },
-            'Melhor_periodo_post': {
-                'Melhor_perio_postar': mlhr_perio_post.text
+            'melhor_periodo_post': {
+                'melhor_perio_postar': mlhr_perio_post.text,
             },
-            'Genero_seguidores': {
-                'Genero_dos_seguidores': gen_seg.text
+            'genero_seguidores': {
+                'genero_dos_seguidores': gen_seg.text,
             },
-            'Total_posts': {
-                'Total_postagens': tot_post.text
+            'total_posts': {
+                'total_postagens': tot_post.text,
+                'total_interacoes': tot_interacoes.text,
+                'media_interacoes_por_post': media_int_por_post.text,
             }
 
         }
@@ -282,8 +303,8 @@ class ChromeAuto:
         for di in dados_insta:
             print(di)
 
-        with open('dados_etus_instagram.json', 'w', encoding='utf-8') as dim:
-            json.dump(dados_insta, dim, ensure_ascii=False, sort_keys=True, indent=5, separators=(',', ':'))
+        with open('dados_mlabs_instagram.json', 'w', encoding='utf-8') as dim:
+            json.dump(dados_insta, dim, ensure_ascii=False, indent=5, separators=(',', ':'))
 
 
 if __name__ == '__main__':
@@ -296,7 +317,7 @@ if __name__ == '__main__':
 
     sleep(3)
     chrome.relatorios_face()
-    sleep(2)
+    sleep(4)
     print('Dados facebook')
     chrome.dados_facebook()
 
@@ -313,3 +334,5 @@ if __name__ == '__main__':
     print('')
     print('Dados Instagram')
     chrome.dados_insta()
+
+    chrome.sair()

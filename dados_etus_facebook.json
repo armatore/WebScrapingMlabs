@@ -1,25 +1,25 @@
 [
      {
-          "Alcance_total_pagina":{
-               "Alcance_total_organico":"553",
-               "Alcance_total_pago":"8.976"
+          "likes_pagina":{
+               "like_pagina_inicial":"4.686",
+               "like_pagina_final":"4.801",
+               "novas_curtidas":"115",
+               "crescimento_likes":"2.45%"
           },
-          "Likes_pagina":{
-               "Crescimento_likes":"1.54%",
-               "Like_pagina_final":"4.798",
-               "Like_pagina_inicial":"4.725",
-               "Novas_curtidas":"73"
+          "alcance_total_pagina":{
+               "alcance_total_pago":"9.075",
+               "alcance_total_organico":"563"
           },
-          "Melhor_hora_postagem":{
+          "resultado_das_publicacoes":{
+               "numero_postagens":"18",
+               "compartilhamentos":"0",
+               "comentarios":"4",
+               "cliques":"214",
+               "impressoes":"10.167",
+               "reacoes":"39"
+          },
+          "melhor_hora_postagem":{
                "Mehor_hora_postar":"Suas postagens às 16:00 possuem mais interações, assim como as postagens realizadas Quinta-feira"
-          },
-          "Resultado_das_publicacoes":{
-               "Cliques":"213",
-               "Comentarios":"4",
-               "Compartilhamentos":"0",
-               "Impressoes":"9.884",
-               "Numero_postagens":"11",
-               "Reacoes":"37"
           }
      }
 ]

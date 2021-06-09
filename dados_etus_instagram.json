@@ -1,46 +1,37 @@
 [
      {
-          "Cidade_com_maior_alcance":{
-               "cidades":"Cidades Alcance | São Paulo, São Paulo (state) 281 | Rio de Janeiro, Rio de Janeiro (state) 27 | São Bernardo do Campo, São Paulo (state) 8 | Belo Horizonte, Minas Gerais 8 | Porto Alegre, Rio Grande do Sul 7 | Fortaleza, Ceará 6 | Osasco, São Paulo (state) 6"
+          "resumo_geral":{
+               "alcance":"6.630",
+               "impressoes":"13.597",
+               "visualizacoes_perfil":"417",
+               "total_cliques_perfil":"5"
           },
-          "Informacoes_gerais_stories":{
-               "Alcance_storie":"0",
-               "Cliques_frente":"0",
-               "Cliques_voltar":"0",
-               "Impressoes_storie":"1.694",
-               "Media_alcance":"0",
-               "Media_impressoes":"99,65",
-               "Resposta_enquete":"119",
-               "Resposta_storie":"0",
-               "Sair_storie":"0",
-               "Total_stories":"17"
+          "cidade_com_maior_alcance":{
+               "cidades":"Cidades Alcance\nSão Paulo, São Paulo (state) 284\nRio de Janeiro, Rio de Janeiro (state) 28\nSão Bernardo do Campo, São Paulo (state) 8\nBelo Horizonte, Minas Gerais 8\nPorto Alegre, Rio Grande do Sul 7\nCuritiba, Paraná 6\nSantos, São Paulo (state) 5\nSanto André, São Paulo (state) 5\nFortaleza, Ceará 5\nSorocaba, São Paulo (state) 4"
           },
-          "Melhores_hora/dia_postar":{
-               "Melhor_hd_post":"Suas postagens às 16:00 possuem mais interações, assim como as postagens realizadas Sábado"
+          "visao_geral_cliques":{
+               "tipo_cliques":"Tipo de Clique Contagem CTR\nSite na bio 5 0.01%\nMensagem 0 0.00%\nTelefone 0 0.00%\nComo chegar 0 0.00%\nEmail 0 0.00%\nTotal 5 0.01%"
           },
-          "Resultado_publicacoes":{
-               "Alcance_posts":"2.085",
-               "Comentarios_posts":"8",
-               "Engajamento_posts":"125",
-               "Impressoes_posts":"2.367",
-               "Likes_posts":"117",
-               "Posts_salvos":"0",
-               "total_posts":"13"
+          "resultado_publicacoes":{
+               "comentarios_posts":"41",
+               "likes_posts":"432",
+               "impressoes_posts":"7.031",
+               "posts_salvos":"1",
+               "alcance_posts":"6.195",
+               "engajamento_posts":"474",
+               "total_posts":"34"
           },
-          "Resumo_geral":{
-               "Alcance":"2.013",
-               "Impressoes":"4.944",
-               "Total_cliques_perfil":"2",
-               "Visualizacoes_perfil":"157"
-          },
-          "Variacao_seguidores_periodo":{
-               "Crescimento_seguidores":"5,67%",
-               "Num_final_seguidores":"802",
-               "Num_inicial_seguidores":"759",
-               "Variacao_seguidores":"43"
-          },
-          "Visão_geral_cliques":{
-               "tipo_cliques":"Tipo de clique Contagem CTR | Site na bio 2 1,27% | Mensagem 0 0,00% | Telefone 0 0,00% | Como chegar 0 0,00% | Email 0 0,00% | Total 2 1,27%"
+          "informacoes_gerais_stories":{
+               "cliques_voltar":"0",
+               "sair_storie":"0",
+               "cliques_frente":"0",
+               "alcance_storie":"0",
+               "impressoes_storie":"1.798",
+               "resposta_storie":"0",
+               "total_stories":"18",
+               "media_impressoes":"100",
+               "media_alcance":"0",
+               "resposta_enquete":"126"
           }
      }
 ]

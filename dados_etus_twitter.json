@@ -1,14 +1,14 @@
 [
     {
-        "Melhores horarios postar":{
-            "Melhor_dia/hora_posts":"Suas postagens às 16:00 possuem mais interações, assim como as postagens realizadas Quinta-feira"
+        "resumo_geral":{
+            "total_tweets":"34",
+            "total_likes":"213",
+            "total_retweets":"12",
+            "total_interacoes":"225",
+            "media_interacoes_tweets":"6,62"
         },
-        "Resumo Geral":{
-            "Media_interacoes_tweets":"15,64",
-            "Total_interacoes":"219",
-            "Total_likes":"207",
-            "Total_retweets":"12",
-            "Total_tweets":"14"
+        "melhores_horarios_postar":{
+            "melhor_dia/hora_posts":"Suas postagens às 16:00 possuem mais interações, assim como as postagens realizadas Quinta-feira"
         }
     }
 ]

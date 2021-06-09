@@ -1,0 +1,49 @@
+[
+     {
+          "total_likes":{
+               "total_likes":"4.800",
+               "pessoas_engajadas":"51"
+          },
+          "likes_pagina":{
+               "total_likes":"Likes - 14",
+               "total_deslikes":"Unlikes - 2"
+          },
+          "perfil_fas":{
+               "total_fas_masc":"Total de fãs Masculino - 3.445 (71,79%)",
+               "total_fas_fem":"Total de fãs Feminino - 1.354 (28,21%)",
+               "pessoas_engajadas_masc":"Pessoas Engajadas Masculino - 87 (66,92%)",
+               "pessoas_engajadas_fem":"Pessoas Engajadas Feminino - 43 (33,08%)",
+               "total_fas_sem_genero":"1",
+               "total_fas_eng_sem_genero":"51"
+          },
+          "fas_por_cidade":{
+               "total_fas_cidade":"Total de fãs - 1.049",
+               "pessoas_eng_cidade":"Pessoas Engajadas - 77"
+          },
+          "fas_por_fonte":{
+               "outras_fontes":"10 71,43% Fãs obtidos por Outras fontes\n3 21,43% Fãs obtidos através de Visualização da sua página\n1 7,14% Fãs obtidos através de Contas Reativadas"
+          },
+          "efetividade_pagina":{
+               "alcance_total":"4.800",
+               "alcance_pago":"1.652",
+               "likes_pagina":"1.554",
+               "alcance_organico":"86",
+               "usuários_envolvidos":"51"
+          },
+          "interacoes":{
+               "curtir":"Curtir: 70,83% (34)",
+               "click":"Click: 29,17% (14)"
+          },
+          "total_posts":{
+               "total_post":"4",
+               "total_interacoes":"48",
+               "media_interacoes_por_post":"12"
+          },
+          "melhor_tipo_conteudo":{
+               "melhor_conteudo":"Faça mais posts com Foto!\nSeus posts com Foto alcançaram uma média de 629 pessoas e tiveram uma média de 11 interações."
+          },
+          "melhor_periodo_postar":{
+               "melhor_dia/hora_postar":"Melhor período para postagem\nSegunda\n93,75% da média de interações no período selecionado.\n12:00 - 13:00\n93,75% da média de interações no período selecionado."
+          }
+     }
+]
