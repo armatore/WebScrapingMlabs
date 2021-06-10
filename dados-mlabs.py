@@ -4,6 +4,7 @@ from time import sleep
 from bs4 import BeautifulSoup
 import csv
 
+dados_mlabs = []
 class ChromeAuto:
     def __init__(self):
         self.drive_path = 'chromedriver.exe'
@@ -84,7 +85,7 @@ class ChromeAuto:
         i_curtir = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(1) > span')
         #i_amei = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span > strong')
         #i_comentarios = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(3) > span > strong')
-        i_click = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span')
+        #i_click = self.chrome.find_element_by_css_selector('#highcharts-10 > div > div > div > div:nth-child(2) > span')
 
         # Total de posts
         tot_posts = self.chrome.find_element_by_css_selector('#acpt-box-contents > div:nth-child(1) > div > div > div > div:nth-child(6) > div:nth-child(1) > div > div > span')
@@ -132,7 +133,7 @@ class ChromeAuto:
                         'curtir': i_curtir.text,
                         #'amei': i_amei.text,
                         #'comentarios': i_comentarios.text,
-                        'click': i_click.text,
+                        #'click': i_click.text,
                 },
                 'total_posts': {
                         'total_post': tot_posts.text,
@@ -307,6 +308,7 @@ class ChromeAuto:
             json.dump(dados_insta, dim, ensure_ascii=False, indent=5, separators=(',', ':'))
 
 
+
 if __name__ == '__main__':
     chrome = ChromeAuto()
     chrome.acessa('https://www.mlabs.com.br/')
@@ -336,3 +338,4 @@ if __name__ == '__main__':
     chrome.dados_insta()
 
     chrome.sair()
+

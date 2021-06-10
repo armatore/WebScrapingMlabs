@@ -22,7 +22,7 @@ class ChromeAuto:
     def sair(self):
         self.chrome.quit()
 
-    #Faz o login
+    #Digita os dados e faz o login
     def faz_login(self):
         try:
             input_login = self.chrome.find_element_by_css_selector('#login')
